@@ -1,9 +1,10 @@
 import moedaParaNumero from './moedaPraNumero.js';
+import stringToDate from './stringToDate.js';
 export default function normalizarTransacao(transacao) {
     return {
         status: transacao.Nome,
         id: transacao.ID,
-        data: transacao.Data,
+        data: stringToDate(transacao.Data),
         nome: transacao.Nome,
         pagamento: transacao['Forma de Pagamento'],
         email: transacao.Email,
