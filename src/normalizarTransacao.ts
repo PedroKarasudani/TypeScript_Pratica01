@@ -23,7 +23,7 @@ declare global {
   interface Transacao {
     status: TransacaoStatus;
     id: number;
-    data: string;
+    data: Date;
     nome: string;
     pagamento: TransacaoPagamento;
     email: string;
@@ -33,9 +33,11 @@ declare global {
   }
 }
 
-export default function normalizarTransacao(transacao: TransacaoAPI) {
+export default function normalizarTransacao(
+  transacao: TransacaoAPI,
+): Transacao {
   return {
-    status: transacao.Nome,
+    status: transacao.Status,
     id: transacao.ID,
     data: stringToDate(transacao.Data),
     nome: transacao.Nome,

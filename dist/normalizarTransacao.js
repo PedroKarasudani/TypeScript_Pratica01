@@ -2,7 +2,7 @@ import moedaParaNumero from './moedaPraNumero.js';
 import stringToDate from './stringToDate.js';
 export default function normalizarTransacao(transacao) {
     return {
-        status: transacao.Nome,
+        status: transacao.Status,
         id: transacao.ID,
         data: stringToDate(transacao.Data),
         nome: transacao.Nome,
