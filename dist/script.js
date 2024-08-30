@@ -9,8 +9,18 @@ async function handleDados() {
     preencherTabela(transacao);
     preencherEstatistica(transacao);
 }
+function preencherLista(containerId, lista) {
+    const cotainerElement = document.getElementById(containerId);
+    if (cotainerElement) {
+        Object.keys(lista).forEach((key) => {
+            cotainerElement.innerHTML += `<p>${key}: ${lista[key]}</p>`;
+        });
+    }
+}
 function preencherEstatistica(transacoes) {
     const data = new Estatistica(transacoes);
+    preencherLista('pagamento', data.pagamento);
+    preencherLista('status', data.status);
     const totalElement = document.querySelector('#total span');
     if (totalElement) {
         totalElement.innerText = data.total.toLocaleString('pt-BR', {
